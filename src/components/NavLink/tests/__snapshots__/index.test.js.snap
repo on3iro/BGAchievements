@@ -1,0 +1,3 @@
+exports[`<NavLink /> should render <RestyledLink /> 1`] = `1`
+
+exports[`<NavLink /> should render styled.li 1`] = `1`

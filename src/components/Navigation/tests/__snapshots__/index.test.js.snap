@@ -1,0 +1,3 @@
+exports[`<Navigation /> Should render NavBar 1`] = `1`
+
+exports[`<Navigation /> Should render NavLinks 1`] = `2`

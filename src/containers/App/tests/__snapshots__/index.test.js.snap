@@ -1,0 +1,8 @@
+exports[`App react-redux should map state to props 1`] = `
+Object {
+  "isLoggedIn": true,
+  "routerLocation": Object {
+    "pathname": "/login",
+  },
+}
+`

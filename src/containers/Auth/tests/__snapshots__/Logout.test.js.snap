@@ -1,0 +1,15 @@
+exports[`<Logout /> react-redux should map state to props 1`] = `
+Object {
+  "isLoggedIn": true,
+}
+`
+
+exports[`<Logout /> should map dispatch to props 1`] = `
+Object {
+  "logout": [Function],
+}
+`
+
+exports[`<Logout /> should render <Redirect /> if user is not logged in 1`] = `1`
+
+exports[`<Logout /> should return null if user is logged in 1`] = `null`

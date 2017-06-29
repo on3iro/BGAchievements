@@ -1,0 +1,3 @@
+export const GLOBAL_ERROR = 'GLOBAL_ERROR'
+export const GLOBAL_MESSAGE = 'GLOBAL_MESSAGE'
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE'

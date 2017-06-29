@@ -1,0 +1,11 @@
+exports[`<ProtectedRoute /> react-redux should map state to props 1`] = `
+Object {
+  "isLoggedIn": true,
+}
+`
+
+exports[`<ProtectedRoute /> should render Redirect to "/login" if user is logged out 1`] = `1`
+
+exports[`<ProtectedRoute /> should render Redirect to "/login" if user is logged out 2`] = `"/login"`
+
+exports[`<ProtectedRoute /> should render specified component 1`] = `1`

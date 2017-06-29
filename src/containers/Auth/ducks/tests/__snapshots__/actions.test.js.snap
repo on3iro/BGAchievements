@@ -1,0 +1,19 @@
+exports[`actions should create an action to logout 1`] = `
+Object {
+  "type": "LOGOUT",
+}
+`
+
+exports[`actions should create an action to submit login 1`] = `
+Object {
+  "payload": "test",
+  "type": "LOGIN_SUBMIT",
+}
+`
+
+exports[`actions should create an action to submit registration 1`] = `
+Object {
+  "payload": "test",
+  "type": "REGISTER_SUBMIT",
+}
+`

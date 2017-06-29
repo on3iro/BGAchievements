@@ -1,0 +1,11 @@
+exports[`GlobalError should handle CLEAR_MESSAGE 1`] = `""`
+
+exports[`GlobalError should handle GLOBAL_ERROR 1`] = `"Error"`
+
+exports[`GlobalError should return initial state 1`] = `""`
+
+exports[`GlobalMessage should handle CLEAR_MESSAGE 1`] = `""`
+
+exports[`GlobalMessage should handle GLOBAL_ERROR 1`] = `"Message"`
+
+exports[`GlobalMessage should return initial state 1`] = `""`
