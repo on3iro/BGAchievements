@@ -1,0 +1,29 @@
+exports[`<LoginForm /> should render <H1> 1`] = `1`
+
+exports[`<LoginForm /> should render <form> tag 1`] = `1`
+
+exports[`<LoginForm /> should render Fields 1`] = `2`
+
+exports[`<LoginForm /> should render Password Field 1`] = `true`
+
+exports[`<LoginForm /> should render submit button  1`] = `1`
+
+exports[`<LoginForm /> should render text Field 1`] = `true`
+
+exports[`validate() should throw "Invald email address" 1`] = `
+Object {
+  "email": "Ungültige Email-Adresse!",
+}
+`
+
+exports[`validate() should throw "Required" on empty email 1`] = `
+Object {
+  "email": "Pflichtfeld",
+}
+`
+
+exports[`validate() should throw "Required" on password 1`] = `
+Object {
+  "password": "Pflichtfeld",
+}
+`
