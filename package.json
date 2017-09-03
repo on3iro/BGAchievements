@@ -1,0 +1,105 @@
+{
+  "name": "BGAchievements",
+  "version": "1.0.0",
+  "main": "index.html",
+  "description": "Basic template for new websites.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:on3iro/BGAchievements.git"
+  },
+  "keywords": [
+    "HTML5",
+    "CSS",
+    "JavaScript",
+    "SASS"
+  ],
+  "bugs": {
+    "url": "http://github.com:on3iro/BGAchievements/issues"
+  },
+  "scripts": {
+    "prestart": "npm run svg-sprite",
+    "start": "cross-env NODE_ENV=development nf start",
+    "api": "node api.js",
+    "client": "webpack-dev-server --config webpack.config.js",
+    "prebuild": "npm run svg-sprite",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.js --progress --profile --colors",
+    "stylelint": "stylelint \"src/sass/**/*.scss\" || echo",
+    "stylelint:fix": "stylelint \"src/sass/**/*.scss\" --fix",
+    "test:clean": "rimraf ./coverage",
+    "pretest": "npm run test:clean",
+    "test": "",
+    "svg-sprite": "rimraf src/img/sprite.svg && svg-sprite --config svg-sprite.json src/img/**/*.svg"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ],
+      "stage-3"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          [
+            "transform-es2015-modules-commonjs"
+          ]
+        ]
+      }
+    }
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "fourseasons",
+    "email": "info@4so.de",
+    "url": "http://www.4so.de"
+  },
+  "contributors": [
+    "Theo Salzmann",
+    "Janett Hickel",
+    "Henryk Kurze"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "normalize.css": "^7.0.0"
+  },
+  "engines": {},
+  "devDependencies": {
+    "autoprefixer": "^7.1.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "coveralls": "^2.13.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "elm-webpack-loader": "^4.3.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "foreman": "^2.0.0",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-harddisk-plugin": "^0.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "image-webpack-loader": "^3.4.0",
+    "json-server": "^0.12.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "rimraf": "^2.5.4",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
+    "stylelint-config-idiomatic-order": "^5.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-scss": "^2.1.0",
+    "stylelint-webpack-plugin": "^0.9.0",
+    "svg-sprite": "^1.3.6",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.1.0"
+  }
+}

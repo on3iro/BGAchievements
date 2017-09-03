@@ -137,6 +137,11 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+# Elm
+elm-stuff
+
 #===== Build ======#
 /dist/
 /docs/
+*/**/_svg-sprite.scss
+*/**/sprite.svg

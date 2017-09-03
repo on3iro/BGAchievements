@@ -1,0 +1,23 @@
+//
+// Contains all mixins, might be split into multiple files to keep it well
+// structured.
+//
+
+/// Mixin applying a clearfix for floats, without adding the class .clearfix to
+/// the element. It will generate a pseudo element that applies the clearfix.
+///
+/// @example scss - Usage
+///     .list {
+///         @include clearfix;
+///     }
+@mixin clearfix {
+    &::before,
+    &::after {
+        display: table;
+        content: " ";
+    }
+
+    &::after {
+        clear: both;
+    }
+}

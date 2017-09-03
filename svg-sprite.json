@@ -1,0 +1,24 @@
+{
+    "dest": "src",
+    "shape": {
+        "dimension": {
+            "precision": 0
+        },
+        "spacing": {
+            "padding": 1
+        }
+    },
+    "mode": {
+        "css": {
+            "dest": "static/sass",
+            "sprite": "../img/sprite.svg",
+            "bust": false,
+            "render": {
+                "scss": {
+                    "dest": "_svg-sprite.scss"
+                }
+            },
+            "example": false
+        }
+    }
+}

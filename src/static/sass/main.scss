@@ -1,0 +1,10 @@
+@import "./svg-sprite";
+@import "abstracts/colors";
+@import "abstracts/mixins";
+
+html {
+    margin: 5px;
+    color: red;
+
+    content: "";
+}
