@@ -1,3 +1,0 @@
-exports[`<Entry /> should render <div> when folded 1`] = `1`
-
-exports[`<Entry /> should render answer <div> when expanded 1`] = `2`

@@ -1,0 +1,40 @@
+[ignore]
+.*/__tests__/.*
+.*/.+\.test.js
+.*/node_modules/.*
+
+[include]
+
+[libs]
+flow-typed
+
+[lints]
+
+[options]
+# Uncomment the following line to run all watched files through flow
+# This way no explicit // @flow comment in files is necessary
+# all=true
+emoji=true
+
+# root-file mappings to src/
+# dirs
+module.name_mapper='^ducks/\(.*\)$' -> '<PROJECT_ROOT>/src/ducks/\1'
+module.name_mapper='^views/\(.*\)$' -> '<PROJECT_ROOT>/src/views/\1'
+module.name_mapper='^shared/\(.*\)$' -> '<PROJECT_ROOT>/src/shared/\1'
+module.name_mapper='^config/\(.*\)$' -> '<PROJECT_ROOT>/src/config/\1'
+module.name_mapper='^themes/\(.*\)$' -> '<PROJECT_ROOT>/src/themes/\1'
+# files
+module.name_mapper='^globalTypes$' -> '<PROJECT_ROOT>/src/globalTypes.js'
+module.name_mapper='^store$' -> '<PROJECT_ROOT>/src/store.js'
+module.name_mapper='^App$' -> '<PROJECT_ROOT>/src/App.jsx'
+module.name_mapper='^config$' -> '<PROJECT_ROOT>/src/config.js'
+
+module.file_ext=.scss
+module.name_mapper.extension='scss' -> 'empty/object'
+module.file_ext=.css
+module.name_mapper.extension='css' -> 'empty/object'
+module.file_ext=.html
+module.name_mapper.extension='html' -> 'empty/object'
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json

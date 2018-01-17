@@ -1,33 +1,26 @@
-/**
- * Application store which handles application state and connects reducers
- * to middleware.
-  *
-  * @namespace Reducer
-  */
+// @flow
 
 import { createStore, applyMiddleware, compose } from 'redux'
-import createSagaMiddleWare from 'redux-saga'
-import { routerMiddleware } from 'react-router-redux'
+import { install } from 'redux-loop'
 
 import rootReducer from './rootReducer'
 
-export default function configureStore (initialState, history) {
-  const historyMiddleware = routerMiddleware(history)
-  const sagaMiddleWare = createSagaMiddleWare()
+const configureStore = (initialState: Object): Object => {
+  // Add middleware to this array if necessary
   const middleWares = [
-    sagaMiddleWare,
-    historyMiddleware
   ]
 
   const enhancers = [
-    applyMiddleware(...middleWares)
+    applyMiddleware(...middleWares),
+    install()
   ]
 
   const composeEnhancers =
-    process.env.NODE_ENV !== 'production' &&
+    process.env.NODE_ENV !== 'prod' &&
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      : compose
 
   const store = createStore(
     rootReducer,
@@ -35,7 +28,9 @@ export default function configureStore (initialState, history) {
     composeEnhancers(...enhancers)
   )
 
-  store.runSaga = sagaMiddleWare.run
-
   return store
+}
+
+export {
+  configureStore as default
 }

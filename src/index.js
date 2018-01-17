@@ -1,40 +1,31 @@
-/**
-  * Global entry point to the app
-  *
-  * @namespace AppEntryPoint
-  */
+// @flow
 
+// Styles
+import 'normalize.css'
+import './global-styles'
+import './sass/main.scss'
+
+// Modules
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
-import createHistory from 'history/createBrowserHistory'
 
-// Styles
-import 'sanitize.css/sanitize.css'
-import './global-styles'
+import App from 'App'
+import configureStore from 'store'
 
-// Favicon import for webpack
-// TODO
-// import 'img/favicon.png'
-
-import configureStore from './store'
-import rootSaga from './rootSaga'
-import App from 'containers/App'
-
-const rootElement = document.getElementById('root')
 const initialState = {}
-const history = createHistory()
-const store = configureStore(initialState, history)
+const store = configureStore(initialState)
 
-// Run rootSaga
-store.runSaga(rootSaga)
+const render = (Component) => {
+  const rootElement = document.getElementById('root')
 
-const render = Component => {
+  if (!rootElement) return
+
   return ReactDom.render(
     <AppContainer>
       <Provider store={store}>
-        <Component history={history} />
+        <Component />
       </Provider>
     </AppContainer>,
     rootElement
@@ -44,5 +35,6 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-  module.hot.accept('containers/App', () => render(App))
+  // $FlowFixMe
+  module.hot.accept('App', () => render(App))
 }

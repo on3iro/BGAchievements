@@ -1,5 +1,0 @@
-exports[`<FormField /> should render <Span /> when has been touched and errored 1`] = `1`
-
-exports[`<FormField /> should render an <Input /> 1`] = `1`
-
-exports[`<FormField /> should render no <Span /> if it has not been touched or errored 1`] = `0`

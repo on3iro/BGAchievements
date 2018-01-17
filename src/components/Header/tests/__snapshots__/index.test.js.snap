@@ -1,5 +1,0 @@
-exports[`<Header /> Should render a <Navigation /> 1`] = `1`
-
-exports[`<Header /> Should render an <Logo /> 1`] = `1`
-
-exports[`<Header /> should render a Wrapper 1`] = `1`

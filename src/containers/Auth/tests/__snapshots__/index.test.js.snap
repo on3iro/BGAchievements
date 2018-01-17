@@ -1,5 +1,0 @@
-exports[`<Auth /> react-redux should map state to props 1`] = `
-Object {
-  "isLoggedIn": true,
-}
-`

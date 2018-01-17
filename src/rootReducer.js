@@ -1,13 +1,9 @@
-import { combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
-import { routerReducer } from 'react-router-redux'
+// @flow
 
-import auth from 'containers/Auth/ducks/reducers'
-import GlobalMessages from 'containers/GlobalMessage/ducks/reducers'
+import { combineReducers } from 'redux-loop'
+
+import { fakeUserReducer } from 'ducks/fakeUser/reducers.js'
 
 export default combineReducers({
-  form: formReducer,
-  router: routerReducer,
-  auth,
-  GlobalMessages
+  fakeUser: fakeUserReducer
 })

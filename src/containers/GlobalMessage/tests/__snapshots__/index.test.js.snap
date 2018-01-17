@@ -1,6 +1,0 @@
-exports[`<GlobalMessage /> react-redux should map state to props 1`] = `
-Object {
-  "error": "Error",
-  "message": "hi",
-}
-`
