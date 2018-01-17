@@ -3,7 +3,6 @@
 // Styles
 import 'normalize.css'
 import './global-styles'
-import './sass/main.scss'
 
 // Modules
 import React from 'react'
