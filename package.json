@@ -22,7 +22,6 @@
     "start": "nf start",
     "api": "node internals/api.js",
     "client": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "prebuild": "npm run svg-sprite",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.js --progress --profile --colors",
     "flow": "flow",
     "lint": "standard",
