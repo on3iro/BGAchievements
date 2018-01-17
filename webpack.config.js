@@ -5,7 +5,16 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
+
+// Get local ip adress
+const os = require('os')
+const netwIfs = os.networkInterfaces()
+const LOCAL_INTERFACES =
+  Object.getOwnPropertyNames(netwIfs)
+    .map(key => netwIfs[key])
+    .reduce((acc, netArr) => [ ...acc, ...netArr ], [])
+    .filter(details => details.family === 'IPv4' && !details.internal)
+const LOCAL_IP = LOCAL_INTERFACES[0].address
 
 const prod = 'production'
 const dev = 'development'
@@ -16,7 +25,7 @@ const isDev = TARGET_ENV === dev
 const isProd = TARGET_ENV === prod
 
 // Entry and output path/filename variables
-const entryPath = path.join(__dirname, 'src/static/js/index.js')
+const entryPath = path.join(__dirname, 'src/index.js')
 const outputPath = path.join(__dirname, 'dist')
 const outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
 
@@ -29,20 +38,19 @@ const commonConfig = {
     path: outputPath,
 
     // Calc output file name dynamically,
-    filename: `static/js/${outputFilename}`
+    filename: `${outputFilename}`
   },
   resolve: {
     // Automatically resolves those extensions so they can be omitted when
     // importing a file of those types
-    extensions: ['.js', '.elm'],
-    modules: ['node_modules']
+    extensions: ['.js', '.jsx'],
+    modules: ['node_modules', 'src']
   },
   module: {
-    noParse: /\.elm$/,
     rules: [
       {
         // Transpile ES6
-        test: /\.js?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: [
           { loader: 'babel-loader' }
@@ -58,25 +66,11 @@ const commonConfig = {
       },
       {
         test: /\.(ttf|eot|svg|gif|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader:
-        [
-          'file-loader',
+        use: [
           {
-            loader: 'image-webpack-loader',
-            query: {
-              mozjpeg: {
-                progressive: true
-              },
-              optipng: {
-                optimizationLevel: 7
-              },
-              gifsicle: {
-                interlaced: false
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              }
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[ext]'
             }
           }
         ]
@@ -88,7 +82,7 @@ const commonConfig = {
     // using script tags
     // Takes a template file as input and outputs it to the dist folder
     new HtmlWebpackPlugin({
-      template: 'src/static/index.tpl.html',
+      template: 'src/index.tpl.html',
       inject: 'body',
       filename: 'index.html'
       // TODO favicon: 'src/img/favicon.png'
@@ -101,14 +95,16 @@ const commonConfig = {
 }
 
 // Additional settings for local dev env
+const FlowWebpackPlugin = require('flow-webpack-plugin')
 if (isDev) {
   module.exports = merge(commonConfig, {
     entry: [
       'babel-polyfill',
 
       // Dev-server
-      'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
+
+      'react-hot-loader/patch',
 
       // Entrypoint
       entryPath
@@ -118,23 +114,26 @@ if (isDev) {
     devServer: {
       // contentBase: './src',
       hot: true,
-      stats: {
-        colors: true
-      }
+      host: '0.0.0.0',
+      port: 8080,
+      historyApiFallback: true,
+      disableHostCheck: true,
+      stats: 'minimal'
     },
     module: {
       rules: [
         {
-          test: /\.elm$/,
-          exclude: [/elm-stuff/, /node_modules/],
-          use: [{
-            loader: 'elm-webpack-loader',
+          // Lint with standard
+          test: /\.(js|jsx)?$/,
+          enforce: 'pre',
+          exclude: /node_modules/,
+          use: {
+            loader: 'standard-loader',
             options: {
-              verbose: true,
-              warn: true,
-              debug: true
+              error: false,
+              snazzy: true
             }
-          }]
+          }
         },
         {
           // Style loader
@@ -186,10 +185,8 @@ if (isDev) {
       // better readable module names in the browser on HMR updates
       new webpack.NamedModulesPlugin(),
 
-      // Style linting
-      new StyleLintPlugin({
-        configfile: '../stylelint.config.js'
-      }),
+      // flow type checking
+      new FlowWebpackPlugin(),
 
       // Nicer webpack logs in the console
       new FriendlyErrorsWebpackPlugin(),
@@ -197,7 +194,8 @@ if (isDev) {
       // Helps passing variables between webpack and js-files
       // Gives us the ability to e.g. switch between dev and production environment
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('development')
+        'process.env.NODE_ENV': JSON.stringify('development'),
+        'process.env.LOCAL_IP': JSON.stringify(LOCAL_IP)
       })
     ]
   })
@@ -222,11 +220,6 @@ if (isProd) {
     ],
     module: {
       rules: [
-        {
-          test: /\.elm$/,
-          exclude: [/elm-stuff/, /node_modules/],
-          use: 'elm-webpack-loader'
-        },
         {
           test: /\.css$/,
           use: extractCss.extract({
