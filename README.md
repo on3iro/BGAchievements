@@ -1,3 +1,5 @@
+> DISCLAIMER: Work in progress
+
 [![Build Status](https://travis-ci.org/on3iro/BGAchievements.svg?branch=master)](https://travis-ci.org/on3iro/BGAchievements)
 [![Coverage Status](https://coveralls.io/repos/github/on3iro/BGAchievements/badge.svg?branch=master)](https://coveralls.io/github/on3iro/BGAchievements?branch=master)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
