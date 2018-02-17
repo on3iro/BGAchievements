@@ -1,7 +1,6 @@
 // @flow
 
 // Styles
-import 'normalize.css'
 import './global-styles'
 
 // Modules
