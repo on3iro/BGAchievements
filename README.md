@@ -10,6 +10,8 @@
 
 # BGAchievements (working title)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/on3iro/BGAchievements.svg)](https://greenkeeper.io/)
+
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
 * [Basic Road Map](#basic-road-map)
