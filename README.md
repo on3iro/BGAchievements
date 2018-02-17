@@ -5,13 +5,20 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-# ToC
+# BGAchievements (working title)
 
 <!-- vim-markdown-toc GFM -->
-
-* [BGAchievements](#cookiecutterproject_name)
-* [Installing / Getting started](#installing--getting-started)
-* [Developing](#developing)
+* [Description](#description)
+* [Basic Road Map](#basic-road-map)
+    * [Prerequisite phase](#prerequisite-phase)
+    * [MVP (Minimum Viable Product)](#mvp-minimum-viable-product)
+    * [Beta](#beta)
+* [FAQ](#faq)
+    * [Will the app be free](#will-the-app-be-free)
+    * [Is it done yet](#is-it-done-yet)
+* [Contributing](#contributing)
+    * [Installing / Getting started](#installing--getting-started)
+    * [Developing](#developing)
     * [Built With](#built-with)
     * [Development commands](#development-commands)
         * [Dev-Server](#dev-server)
@@ -22,17 +29,86 @@
     * [Building](#building)
     * [CI](#ci)
 * [Versioning](#versioning)
-* [Style guide](#style-guide)
 
 <!-- vim-markdown-toc -->
 
 
-## BGAchievements
+## Description
 
-Master your games...
+BGAchievements is (or at this point in time rather "will be") a web application to craft, rate and
+share achievement sets for your favorite board games.
+Think of Steam achievements for board gaming.
+
+This project is an endeavour of board game and web development enthusiasts.
+Our goals are diving deeper into some of the intricacies of modern web development
+as well as producing a lovable product we will be eventually able to use :)
+All of our main contributors work in the tech industry and share a deep passion
+for gaming and board games in particular.
 
 
-## Installing / Getting started
+## Basic Road Map
+
+### Prerequisite phase
+
+* [x] Determine initial feature set
+* [ ] Create Mockups
+* [ ] Create basic designs
+* [ ] Create static prototype
+* [ ] Create data model
+* [ ] Create project baseline / dev / deployment workflow
+
+
+### MVP (Minimum Viable Product)
+
+> Scheduled for summer/autumn 2018
+
+* [ ] User registration
+* [ ] Creation of private achievement sets
+* [ ] Achievement tracking and (hopefully) a satisfying unlocking experience (think of Hearthstone booster packs :smile:)
+* [ ] Public hosting and starting an alpha phase
+
+
+### Beta
+
+> No schedule, yet.
+
+* [ ] Sharing, rating, commenting of achievement sets
+* [ ] Merging achievement sets
+* [ ] Starring achievement sets
+* [ ] Search through sets for specific games
+* [ ] Currated sets (board game authors, offical sets etc.)
+* [ ] Landing page showing latest and hottest achievement sets
+* [ ] Managing game collections and sets per user
+* [ ] Get list of games by connecting to the boardgamegeek api
+
+
+## FAQ
+
+### Will the app be free
+
+> Yes. We hope to be able to maintain the app without subscription fees or any
+additional costs attached to it.
+> However depending on the success of the project server costs might increase
+> so we will probably add a way to donate later down the road.
+
+
+### Is it done yet
+
+> TL'DR: No! :(
+>
+> Actually we are currently just starting out.
+
+
+## Contributing
+
+We are currently just starting out and need to "stabilize" our
+development workflow. Therefore we will currently only take "light weight" contributions
+marked with the label [help wanted](https://github.com/on3iro/BGAchievements/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22).
+Later on we will probably start to open things up a bit and also make some
+more technically advanced issues open for contribution.
+
+
+### Installing / Getting started
 
 To install all project dependencies simply run
 
@@ -41,7 +117,7 @@ npm i
 ```
 
 
-## Developing
+### Developing
 
 ### Built With
 
@@ -58,7 +134,6 @@ made according to our own guidelines. Therefore this template includes:
 * Babel for ES6 and Flow transpilation
 * Flow as type-checker
 * Standard as JS linter
-* CSS-Autoprefixing via postcss
 * Jest as testing framework
 * normalize.css as CSS-reset
 
@@ -77,6 +152,13 @@ This and start an instance of webpack-dev-server as well as an instance of
 a json-server which provides a fake api.
 From then on the whole project will rebuild, run your JS files through the Flow type-checker and
 lint your JS with standard whenever you save a file.
+
+You can also run client and api separately by using the following commands:
+
+```bash
+npm run api
+npm run client
+```
 
 
 #### Type-Checker (Flow)
@@ -108,18 +190,25 @@ the `.flowconfig` like so:
 module.system.node.resolve_dirname=src
 ```
 
+
 #### Linters
 
 To separately lint your JS-files, run:
 
 ```shell
-npm run lint
+npm run lint:js
 ```
 
 or to autmatically fix issues if possible, run:
 
 ```shell
-npm run lint:fix
+npm run lint:js:fix
+```
+
+To lint styled-components run
+
+```bash
+npm run lint:css
 ```
 
 
@@ -172,8 +261,3 @@ Just configure the file to your needs.
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning.
-
-
-## Style guide
-
-4so-Guidelines [v1.2.2](http://gitlab.4so.local/fourseasons/guidelines/tree/v1.2.2)
