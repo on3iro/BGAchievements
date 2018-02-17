@@ -53,7 +53,13 @@ const commonConfig = {
         test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader' }
+          { loader: 'babel-loader' },
+          {
+            loader: 'stylelint-custom-processor-loader',
+            options: {
+              configPath: './.stylelintrc'
+            }
+          }
         ]
       },
       {
@@ -115,7 +121,7 @@ if (isDev) {
       // contentBase: './src',
       hot: true,
       host: '0.0.0.0',
-      port: 8080,
+      port: 3000,
       historyApiFallback: true,
       disableHostCheck: true,
       stats: 'minimal'
@@ -134,44 +140,6 @@ if (isDev) {
               snazzy: true
             }
           }
-        },
-        {
-          // Style loader
-          test: /\.scss$/,
-          use: [
-            {
-              loader: 'style-loader' // Creates style nodes from js strings
-            },
-            {
-              loader: 'css-loader', // translates CSS into modules
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'postcss-loader', // used for features like autoprefixer
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader', // compiles Sass to CSS
-              options: {
-                sourceMap: true
-              }
-            }
-          ]
-        },
-        {
-          test: /\.css/,
-          use: [
-            {
-              loader: 'style-loader'
-            },
-            {
-              loader: 'css-loader'
-            }
-          ]
         }
       ] // end rules
     }, // end module
@@ -202,59 +170,15 @@ if (isDev) {
 }
 
 // additional production env settings
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 if (isProd) {
-  const extractSass = new ExtractTextPlugin({
-    filename: 'css/[name].[contenthash].css'
-  })
-
-  const extractCss = new ExtractTextPlugin({
-    filename: 'css/[name].[contenthash].css'
-  })
-
   module.exports = merge(commonConfig, {
     entry: [
       'babel-polyfill',
       entryPath
     ],
     module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: extractCss.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  minimize: true
-                }
-              }
-            ],
-            fallback: 'style-loader'
-          })
-        },
-        {
-          test: /\.scss$/,
-          use: extractSass.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  minimize: true
-                }
-              },
-              {
-                loader: 'postcss-loader'
-              },
-              {
-                loader: 'sass-loader'
-              }
-            ],
-            fallback: 'style-loader'
-          })
-        }
-      ] // end rules
+      rules: [] // end rules
     }, // end module
     plugins: [
       // Split bundle into vendor and manifest files
@@ -283,12 +207,7 @@ if (isProd) {
       // Gives us the ability to e.g. switch between dev and production environment
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
-      }),
-
-      extractCss,
-
-      // Extracts Sass
-      extractSass
+      })
     ] // end plugins
   })
 }

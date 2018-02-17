@@ -11,7 +11,8 @@ install:
     - npm install
 
 script:
-    - npm run lint
+    - npm run lint:css
+    - npm run lint:js
     - npm run flow
     - npm run test:coveralls
     - npm run build

@@ -7,8 +7,8 @@ import Logo from './Logo'
 import NavMain from './NavMain'
 
 const Wrapper = styled.div`
-  box-sizing: border-box;
   display: flex;
+
   flex-direction: row;
   justify-content: flex-start;
 

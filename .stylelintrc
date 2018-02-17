@@ -1,0 +1,14 @@
+{
+    "processors": ["stylelint-processor-styled-components"],
+    "extends": [
+        "@4so-fourseasons/stylelint-config-sane-order",
+        "stylelint-config-styled-components"
+    ],
+    "rules": {
+        "declaration-empty-line-before": null,
+        "block-no-empty": null,
+        "declaration-colon-newline-after": null,
+        "value-list-max-empty-lines": null
+    },
+    "syntax": "scss"
+}

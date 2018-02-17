@@ -148,8 +148,8 @@ To start the development server run:
 npm start
 ```
 
-This and start an instance of webpack-dev-server as well as an instance of
-a json-server which provides a fake api.
+This will start an instance of webpack-dev-server on `localhost:3000` as well as an instance of
+json-server which provides a fake api on `localhost:8089`.
 From then on the whole project will rebuild, run your JS files through the Flow type-checker and
 lint your JS with standard whenever you save a file.
 
