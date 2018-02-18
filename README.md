@@ -3,14 +3,14 @@
 [![Build Status](https://travis-ci.org/on3iro/BGAchievements.svg?branch=master)](https://travis-ci.org/on3iro/BGAchievements)
 [![Coverage Status](https://coveralls.io/repos/github/on3iro/BGAchievements/badge.svg?branch=master)](https://coveralls.io/github/on3iro/BGAchievements?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8959184d99c4b024edf7/maintainability)](https://codeclimate.com/github/on3iro/BGAchievements/maintainability)
+[![Greenkeeper badge](https://badges.greenkeeper.io/on3iro/BGAchievements.svg)](https://greenkeeper.io/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 [![Slack](https://img.shields.io/badge/Slack-bgachievements.slack.com-blue.svg?style=flat-square)](https://bgachievements.slack.com/)
 
-# BGAchievements (working title)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/on3iro/BGAchievements.svg)](https://greenkeeper.io/)
+# BGAchievements (working title)
 
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
