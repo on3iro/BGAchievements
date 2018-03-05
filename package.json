@@ -113,7 +113,7 @@
   },
   "engines": {},
   "devDependencies": {
-    "@4so-fourseasons/stylelint-config-sane-order": "^1.0.2",
+    "@4so-fourseasons/stylelint-config-sane-order": "^2.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.0.3",
     "babel-jest": "^22.2.2",
