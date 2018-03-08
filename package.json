@@ -130,7 +130,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-flowtype": "^2.44.0",
     "file-loader": "^1.1.6",
-    "flow-bin": "^0.66.0",
+    "flow-bin": "^0.67.1",
     "flow-webpack-plugin": "^1.2.0",
     "foreman": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.6.1",
