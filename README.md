@@ -13,6 +13,7 @@
 # BGAchievements (working title)
 
 <!-- vim-markdown-toc GFM -->
+
 * [Description](#description)
 * [Basic Road Map](#basic-road-map)
     * [Prerequisite phase](#prerequisite-phase)
@@ -32,7 +33,6 @@
         * [Linters](#linters)
         * [Testing](#testing)
     * [Building](#building)
-    * [CI](#ci)
 * [Versioning](#versioning)
 
 <!-- vim-markdown-toc -->
@@ -255,12 +255,6 @@ npm run build
 This will compile, minify and bundle
 everything and put all packaged files into the _dist/_ directory (if there is no such directory it will just be newly created, an existing directory will be removed first).
 To allow our clients browsers to cache vendor files and only update the cache when it is really necessary, all important filenames include hashes for reference inside the built manifest file.
-
-
-### CI
-
-This project already includes a default _.gitlab-ci.yml_.
-Just configure the file to your needs.
 
 
 ## Versioning
