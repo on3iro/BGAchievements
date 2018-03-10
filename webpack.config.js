@@ -147,12 +147,6 @@ if (isDev) {
       // Refreshes app inside the browser on file save
       new webpack.HotModuleReplacementPlugin(),
 
-      // Prevents webpack CLI from stopping if errors occur
-      new webpack.NoEmitOnErrorsPlugin(),
-
-      // better readable module names in the browser on HMR updates
-      new webpack.NamedModulesPlugin(),
-
       // flow type checking
       new FlowWebpackPlugin(),
 
