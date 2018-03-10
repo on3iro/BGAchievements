@@ -13,10 +13,10 @@ const Wrapper = styled.div`
 `
 
 const ExtendedUl = styled(Ul)`
-  display: flex;
-
   position: absolute;
   bottom: 0;
+
+  display: flex;
 
   flex-direction: row;
   justify-content: space-between;
