@@ -7,7 +7,7 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-[![Discord](https://img.shields.io/badge/https://discord.gg/fEZt7tz-blue.svg?style=flat-square)](https://discord.gg/fEZt7tz)
+[![Discord](https://img.shields.io/badge/Discord-https%3A%2F%2Fdiscord.gg%2FfEZt7tz-7289DA.svg?style=flat-square)](https://discord.gg/fEZt7tz)
 
 
 # BGAchievements (working title)
