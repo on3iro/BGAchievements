@@ -23,8 +23,8 @@
   "scripts": {
     "start": "nf start",
     "api": "node internals/api.js",
-    "client": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
-    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.js --progress --profile --colors",
+    "client": "cross-env NODE_ENV=development webpack-dev-server --open --mode development --config webpack.config.js",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production --config webpack.config.js --progress --profile --colors",
     "flow": "flow",
     "lint:js": "standard",
     "lint:js:fix": "standard --fix",
@@ -148,8 +148,9 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-custom-processor-loader": "^0.4.0",
     "stylelint-processor-styled-components": "^1.3.0",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.2",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
   }
 }
