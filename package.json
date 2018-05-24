@@ -116,7 +116,7 @@
     "@4so-fourseasons/stylelint-config-sane-order": "^2.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "8.2.2",
-    "babel-jest": "^22.4.1",
+    "babel-jest": "^23.0.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-styled-components": "^1.5.1",
     "babel-preset-env": "^1.6.1",
