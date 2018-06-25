@@ -109,7 +109,7 @@
     "redux-loop": "^4.2.4",
     "reselect": "^3.0.1",
     "styled-components": "^3.2.1",
-    "styled-normalize": "^4.0.0"
+    "styled-normalize": "^8.0.0-beta.1"
   },
   "engines": {},
   "devDependencies": {
