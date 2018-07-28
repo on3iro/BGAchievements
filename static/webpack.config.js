@@ -7,14 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 
 // Get local ip adress
-const os = require('os')
-const netwIfs = os.networkInterfaces()
-const LOCAL_INTERFACES =
-  Object.getOwnPropertyNames(netwIfs)
-    .map(key => netwIfs[key])
-    .reduce((acc, netArr) => [ ...acc, ...netArr ], [])
-    .filter(details => details.family === 'IPv4' && !details.internal)
-const LOCAL_IP = LOCAL_INTERFACES[0].address
 
 const prod = 'production'
 const dev = 'development'
@@ -53,7 +45,12 @@ const commonConfig = {
         test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader' },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['react']
+            }
+          },
           {
             loader: 'stylelint-custom-processor-loader',
             options: {
@@ -92,11 +89,7 @@ const commonConfig = {
       inject: 'body',
       filename: 'index.html'
       // TODO favicon: 'src/img/favicon.png'
-    }),
-
-    // Not 100% what this does, but its use is highly recommended by the
-    // official webpack docs, so I obey ;)
-    new webpack.optimize.OccurrenceOrderPlugin()
+    })
   ]
 }
 
@@ -104,6 +97,7 @@ const commonConfig = {
 const FlowWebpackPlugin = require('flow-webpack-plugin')
 if (isDev) {
   module.exports = merge(commonConfig, {
+    mode: 'development',
     entry: [
       'babel-polyfill',
 
@@ -147,24 +141,11 @@ if (isDev) {
       // Refreshes app inside the browser on file save
       new webpack.HotModuleReplacementPlugin(),
 
-      // Prevents webpack CLI from stopping if errors occur
-      new webpack.NoEmitOnErrorsPlugin(),
-
-      // better readable module names in the browser on HMR updates
-      new webpack.NamedModulesPlugin(),
-
       // flow type checking
       new FlowWebpackPlugin(),
 
       // Nicer webpack logs in the console
-      new FriendlyErrorsWebpackPlugin(),
-
-      // Helps passing variables between webpack and js-files
-      // Gives us the ability to e.g. switch between dev and production environment
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('development'),
-        'process.env.LOCAL_IP': JSON.stringify(LOCAL_IP)
-      })
+      new FriendlyErrorsWebpackPlugin()
     ]
   })
 }
@@ -173,6 +154,7 @@ if (isDev) {
 
 if (isProd) {
   module.exports = merge(commonConfig, {
+    mode: 'production',
     entry: [
       'babel-polyfill',
       entryPath
@@ -181,33 +163,6 @@ if (isProd) {
       rules: [] // end rules
     }, // end module
     plugins: [
-      // Split bundle into vendor and manifest files
-      // This way clients don't need to reload all
-      // vendor assets, whenever the main app changes
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: function (module) {
-          return module.context && module.context.indexOf('node_modules') !== -1
-        }
-      }),
-
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest'
-      }),
-
-      // JS uglifying
-      new webpack.optimize.UglifyJsPlugin({
-        compressor: {
-          warnings: false,
-          screw_ie8: true
-        }
-      }),
-
-      // Helps passing variables between webpack and js-files
-      // Gives us the ability to e.g. switch between dev and production environment
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
-      })
     ] // end plugins
   })
 }

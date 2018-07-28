@@ -15,7 +15,6 @@
           "modules": false
         }
       ],
-      "flow",
       "stage-3"
     ],
     "env": {
@@ -33,7 +32,6 @@
               "modules": "commonjs"
             }
           ],
-          "flow",
           "stage-3"
         ],
         "plugins": []
