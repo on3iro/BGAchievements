@@ -178,8 +178,8 @@ jspm_packages
 src/js/main.bundle.*
 src/css
 
-/dist
-/build
+*/dist
+*/build
 
 */**/sprite.svg
 */**/_svg-sprite.scss
@@ -273,3 +273,18 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
