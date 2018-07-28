@@ -32,6 +32,7 @@ const render = (Component) => {
 
 render(App)
 
+// $FlowFixMe
 if (module.hot) {
   // $FlowFixMe
   module.hot.accept('App', () => render(App))
