@@ -4,7 +4,7 @@ buildscript {
         springBootVersion = '2.0.3.RELEASE'
     }
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -13,15 +13,27 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+
 
 group = 'com.oneironauten'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
+jar {
+    baseName = 'bgs-rest-service'
+    version = "${version}"
+}
+
+repositories {
+    jcenter()
+}
+
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
@@ -54,3 +66,4 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
 }
+
