@@ -22,4 +22,13 @@ injectGlobal`
   *::after {
     box-sizing: inherit;
   }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .mdi-icon {
+    vertical-align: middle;
+  }
 `
