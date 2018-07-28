@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`FakeUser selectors Should get fake user 1`] = `
-Object {
-  "id": "some data",
-}
-`;
-
-exports[`FakeUser selectors Should get user loading state 1`] = `true`;
