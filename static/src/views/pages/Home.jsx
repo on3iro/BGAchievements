@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import H1 from 'views/components/H1'
+import H1 from 'views/components/atoms/H1'
 
 const Wrapper = styled.div``
 
