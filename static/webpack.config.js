@@ -1,20 +1,22 @@
 'use strict'
 
 const path = require('path')
+const argv = require('yargs').argv
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-// Get local ip adress
-
-const prod = 'production'
-const dev = 'development'
+const ENVS = {
+  PRODUCTION: 'production',
+  DEVELOPMENT: 'development'
+}
 
 // Determine build env
 const TARGET_ENV = process.env.NODE_ENV
-const isDev = TARGET_ENV === dev
-const isProd = TARGET_ENV === prod
+const isDev = TARGET_ENV === ENVS.DEVELOPMENT
+const isProd = TARGET_ENV === ENVS.PRODUCTION
 
 // Entry and output path/filename variables
 const entryPath = path.join(__dirname, 'src/index.js')
@@ -37,6 +39,11 @@ const commonConfig = {
     // importing a file of those types
     extensions: ['.js', '.jsx'],
     modules: ['node_modules', 'src']
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   module: {
     rules: [
@@ -99,8 +106,6 @@ if (isDev) {
   module.exports = merge(commonConfig, {
     mode: 'development',
     entry: [
-      'babel-polyfill',
-
       // Dev-server
       'webpack/hot/only-dev-server',
 
@@ -151,18 +156,19 @@ if (isDev) {
 }
 
 // additional production env settings
-
 if (isProd) {
-  module.exports = merge(commonConfig, {
-    mode: 'production',
-    entry: [
-      'babel-polyfill',
-      entryPath
-    ],
-    module: {
-      rules: [] // end rules
-    }, // end module
-    plugins: [
-    ] // end plugins
-  })
+  module.exports = merge(commonConfig,
+    (argv.analyze ? { plugins: [ new BundleAnalyzerPlugin() ] } : {}),
+    {
+      mode: 'production',
+      entry: [
+        entryPath
+      ],
+      module: {
+        rules: [] // end rules
+      }, // end module
+      plugins: [
+      ] // end plugins
+    }
+  )
 }
