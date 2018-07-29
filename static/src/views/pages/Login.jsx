@@ -23,7 +23,7 @@ const RightAlignedText = styled(P)`
 
 const Login = () => (
   <Wrapper>
-    <LoginForm/>
+    <LoginForm />
     <RightAlignedText>
       <Link to='/home'>Forgot password</Link>
     </RightAlignedText>
