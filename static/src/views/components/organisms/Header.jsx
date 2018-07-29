@@ -35,10 +35,10 @@ const Header = () => (
     <HeaderNav>
       <HeaderNavList>
         <HeaderNavListItem>
-          <HeaderNavLink><SearchIcon /></HeaderNavLink>
+          <HeaderNavLink tabIndex='0'><SearchIcon /></HeaderNavLink>
         </HeaderNavListItem>
         <HeaderNavListItem>
-          <HeaderNavLink><MoreVertIcon /></HeaderNavLink>
+          <HeaderNavLink tabIndex='0'><MoreVertIcon /></HeaderNavLink>
         </HeaderNavListItem>
       </HeaderNavList>
     </HeaderNav>
