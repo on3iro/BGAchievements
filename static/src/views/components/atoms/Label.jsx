@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const Label = styled.label`
   display: block;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: ${props => props.theme.baseFontSize};
+  line-height: ${props => props.theme.baseLineHeight};
 `
 
 export {

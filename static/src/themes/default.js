@@ -2,6 +2,7 @@ const colors = {
   burntOrange: '#d35400',
   zest: '#e67e22',
   alto: '#dadada',
+  gallery: '#efefef',
   monza: '#c8022f',
   redDevil: '#7F001D',
   white: '#ffffff',
@@ -25,7 +26,14 @@ const defaultTheme = {
   borderColor: colors.alto,
   screenS: breakpoints.sm,
   screenM: breakpoints.md,
-  screenL: breakpoints.lg
+  screenL: breakpoints.lg,
+  baseFontSize: '16px',
+  baseLineHeight: '24px',
+  inputBorderColor: colors.alto,
+  inputBorderColorFocus: colors.burntOrange,
+  inputBackgroundColor: colors.white,
+  inputBackgroundColorHover: colors.gallery,
+  inputBackgroundColorDisabled: colors.alto
 }
 
 export {
