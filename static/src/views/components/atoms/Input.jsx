@@ -9,15 +9,18 @@ const Input = styled.input`
   width: 100%;
   height: ${props => (props.theme.buildingUnit * 5)}px;
   border-radius: ${props => (props.theme.buildingUnit * 0.5)}px;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: ${props => props.theme.inputBackgrounColorHover};
+    background-color: ${props => props.theme.inputBackgroundColorHover};
+    transition: background-color 0.2s ease-in-out;
   }
 
   &:focus {
-    background-color: ${props => props.theme.inputBackgrounColor};
+    background-color: ${props => props.theme.inputBackgroundColor};
     border-color: ${props => props.theme.inputBorderColorFocus};
     outline: none;
+    transition: border-color 0.2s ease-in-out;
   }
 
   &:disabled {

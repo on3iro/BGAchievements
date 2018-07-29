@@ -8,6 +8,7 @@ const StyledLink = styled(Link)`
   border-bottom: 1px solid transparent;
   color: ${props => props.theme.primary};
   text-decoration: none;
+  transition: border-color 0.2s ease-in-out;
 
   &:hover {
     border-bottom-color: ${props => props.theme.primary};

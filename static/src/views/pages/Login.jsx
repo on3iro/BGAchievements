@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 
 import P from 'views/components/atoms/P'
@@ -21,19 +21,23 @@ const RightAlignedText = styled(P)`
   text-align: right;
 `
 
-const Login = () => (
-  <Wrapper>
-    <LoginForm />
-    <RightAlignedText>
-      <Link to='/home'>Forgot password</Link>
-    </RightAlignedText>
-    <Divider />
-    <CenteredText>
-      You don't have an account yet?<br />
-      <Link to='/home'>Register here</Link>
-    </CenteredText>
-  </Wrapper>
-)
+class Login extends React.PureComponent<Object> {
+  render () {
+    return (
+      <Wrapper>
+        <LoginForm />
+        <RightAlignedText>
+          <Link to='/home'>Forgot password</Link>
+        </RightAlignedText>
+        <Divider />
+        <CenteredText>
+          You don't have an account yet?<br />
+          <Link to='/home'>Register here</Link>
+        </CenteredText>
+      </Wrapper>
+    )
+  }
+}
 
 export {
   Login as default

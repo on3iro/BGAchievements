@@ -12,6 +12,7 @@ const Button = styled.button`
   color: ${props => props.theme.white};
   line-height: ${props => (props.theme.buildingUnit * 5)}px;
   border-radius: ${props => (props.theme.buildingUnit * 0.5)}px;
+  transition: background-color 0.2s ease-in-out;
 
   &:hover {
     background: ${props => props.theme.primaryHover};

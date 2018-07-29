@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { SearchIcon, MoreVertIcon } from 'mdi-react'
 
@@ -29,21 +29,25 @@ const Wrapper = styled.header`
 const HeaderNav = styled.nav`
 `
 
-const Header = () => (
-  <Wrapper>
-    <Title>BGAchievements</Title>
-    <HeaderNav>
-      <HeaderNavList>
-        <HeaderNavListItem>
-          <HeaderNavLink tabIndex='0'><SearchIcon /></HeaderNavLink>
-        </HeaderNavListItem>
-        <HeaderNavListItem>
-          <HeaderNavLink tabIndex='0'><MoreVertIcon /></HeaderNavLink>
-        </HeaderNavListItem>
-      </HeaderNavList>
-    </HeaderNav>
-  </Wrapper>
-)
+class Header extends React.PureComponent<Object> {
+  render () {
+    return (
+      <Wrapper>
+        <Title>BGAchievements</Title>
+        <HeaderNav>
+          <HeaderNavList>
+            <HeaderNavListItem>
+              <HeaderNavLink tabIndex='0'><SearchIcon /></HeaderNavLink>
+            </HeaderNavListItem>
+            <HeaderNavListItem>
+              <HeaderNavLink tabIndex='0'><MoreVertIcon /></HeaderNavLink>
+            </HeaderNavListItem>
+          </HeaderNavList>
+        </HeaderNav>
+      </Wrapper>
+    )
+  }
+}
 
 export {
   Header as default
