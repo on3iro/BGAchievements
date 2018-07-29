@@ -8,28 +8,42 @@ import Hello from 'ducks/Hello'
 
 import H1 from 'views/components/atoms/H1'
 
-const Wrapper = styled.div``
-
 const mapStateToProps = (state: Object) => {
   return {
-    testData: state.test.testData
+    sampleData: Hello.selectors.getSampleData(state),
+    loading: Hello.selectors.getLoading(state)
   }
 }
 
+const mapDispatchToProps = {
+  fetchSampleData: Hello.actions.fetchSampleDataStart
+}
+
+const Wrapper = styled.div``
+
+const renderMessages = (messages) => messages.map(msg => (
+  <li key={msg.id}>{msg.message}</li>
+))
+
 class Home extends React.PureComponent<Object> {
   componentDidMount () {
-    Hello.sideeffects.fetchSampleData()
-      .then((response) => console.log({response}))
-      .catch((error) => console.log({error}))
+    this.props.fetchSampleData()
   }
 
   render () {
     return (
       <Wrapper>
-        <H1>{this.props.testData}</H1>
+        <H1>{
+          this.props.loading
+            ? 'loading...'
+            : 'not loading :P'
+        }</H1>
+        <ul>
+          { renderMessages(this.props.sampleData) }
+        </ul>
       </Wrapper>
     )
   }
 }
 
-export default connect(mapStateToProps, {})(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
