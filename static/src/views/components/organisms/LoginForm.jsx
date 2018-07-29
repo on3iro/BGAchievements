@@ -13,12 +13,12 @@ const Wrapper = styled(Form)`
 
 const LoginForm = () => (
   <Wrapper>
-      <FormGroup id="username" type='text' label='Username' />
-      <FormGroup id="password" type='password' label='Password' />
-      <Button type='submit'>Test</Button>
+    <FormGroup id='username' type='text' label='Username' />
+    <FormGroup id='password' type='password' label='Password' />
+    <Button type='submit'>Test</Button>
   </Wrapper>
 )
-  
+
 export {
   LoginForm as default
 }
