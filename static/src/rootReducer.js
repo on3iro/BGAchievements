@@ -2,6 +2,8 @@
 
 import { combineReducers } from 'redux-loop'
 
+import Hello from 'ducks/Hello'
+
 export default combineReducers({
-  test: (state, action) => state
+  test: Hello.Reducer
 })
