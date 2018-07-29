@@ -115,11 +115,47 @@ more technically advanced issues open for contribution.
 
 ### Installing / Getting started
 
+#### Database setup 
+
+The first setup needs a database connection. The chosen DBMS is PostgreSQL, which you can download [here](https://www.postgresql.org/download/).
+* Create a database of your choice
+	* either through SQL: CREATE DATABASE db_name
+	* or in a command-line: createdb db_name
+* use the scripts from sql folder to create the database and some demo data
+	* psql -d db_name -f sql/01-initial-schema.sql -U postgres
+	* psql -d db_name -f sql/02-demo-data.sql -U postgres
+
+#### REST application setup
+
+To build the Spring Boot REST application, provide an application.properties file containing your database connection properties
+
+Sample application.properties:
+
+```
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/testdb?currentSchema=bgachievements
+spring.datasource.username=user
+spring.datasource.password=secret
+```	
+
+Then start the application in a comand-line using
+```
+./gradlew bootRun
+```
+on Linux machines or
+```
+gradlew bootRun
+```
+on Unix-like machines in you project root.
+
+
 To install all project dependencies simply run
 
 ```shell
 npm i
 ```
+
+
 
 
 ### Developing
