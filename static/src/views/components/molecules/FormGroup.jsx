@@ -1,27 +1,34 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 
-import Label from '../atoms/Label'
-import Input from '../atoms/Input'
+import Label from 'views/components/atoms/Label'
+import Input from 'views/components/atoms/Input'
 
 const Wrapper = styled.div`
   margin-bottom: ${props => (props.theme.buildingUnit * 3)}px;
   width: 100%;
 `
+
 type Props = {
   id: string,
   type: string,
   label: string
 }
 
-const FormGroup = (props: Props) => (
-  <Wrapper>
-    <Label for={props.id}>{props.label}</Label>
-    <Input type={props.type} id={props.id} name={props.id} />
-  </Wrapper>
-)
+class FormGroup extends React.PureComponent<Props> {
+  render () {
+    const { id, label, type, ...rest } = this.props
+
+    return (
+      <Wrapper>
+        <Label htmlFor={id}>{label}</Label>
+        <Input type={type} id={id} name={id} {...rest} />
+      </Wrapper>
+    )
+  }
+}
 
 export {
   FormGroup as default
