@@ -10,28 +10,25 @@ import Link from 'views/components/atoms/Link'
 import Divider from 'views/components/atoms/Divider'
 
 import Header from 'views/components/organisms/Header'
-import LoginForm from 'views/components/organisms/LoginForm'
+import RegistrationForm from 'views/components/organisms/RegistrationForm'
 
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: ${props => (props.theme.buildingUnit * 54)}px;
 `
 
-class Login extends React.PureComponent<Object> {
+class Registration extends React.PureComponent<Object> {
   render () {
     return (
       <PageWrapper>
         <Header title='BGAchievements' />
         <Content>
           <Wrapper>
-            <LoginForm />
-            <P alignment='right'>
-              <Link to='/home'>Forgot password</Link>
-            </P>
+            <RegistrationForm />
             <Divider />
             <P alignment='center'>
-              You don't have an account yet?<br />
-              <Link to='/registration'>Register here</Link>
+              You already have an account?<br />
+              <Link to='/login'>Login here</Link>
             </P>
           </Wrapper>
         </Content>
@@ -41,5 +38,5 @@ class Login extends React.PureComponent<Object> {
 }
 
 export {
-  Login as default
+  Registration as default
 }
