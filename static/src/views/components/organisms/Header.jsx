@@ -27,14 +27,15 @@ const Wrapper = styled.header`
 `
 
 const HeaderNav = styled.nav`
+  display: ${props => props.isVisible ? 'block' : 'none'};
 `
 
 class Header extends React.PureComponent<Object> {
   render () {
     return (
       <Wrapper>
-        <Title>BGAchievements</Title>
-        <HeaderNav>
+        <Title>{this.props.title}</Title>
+        <HeaderNav isVisible={!!this.props.navVisible}>
           <HeaderNavList>
             <HeaderNavListItem>
               <HeaderNavLink tabIndex='0'><SearchIcon /></HeaderNavLink>
