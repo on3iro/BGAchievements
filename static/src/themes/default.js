@@ -1,7 +1,9 @@
 const colors = {
   burntOrange: '#d35400',
   zest: '#e67e22',
+  mineShaft: '#383838',
   alto: '#dadada',
+  silverChalice: '#a0a0a0',
   gallery: '#efefef',
   monza: '#c8022f',
   redDevil: '#7F001D',
@@ -29,11 +31,15 @@ const defaultTheme = {
   screenL: breakpoints.lg,
   baseFontSize: '16px',
   baseLineHeight: '24px',
+  textColor: colors.mineShaft,
   inputBorderColor: colors.alto,
   inputBorderColorFocus: colors.burntOrange,
   inputBackgroundColor: colors.white,
   inputBackgroundColorHover: colors.gallery,
-  inputBackgroundColorDisabled: colors.alto
+  inputBackgroundColorDisabled: colors.alto,
+  avatarSize: '132px',
+  hintColor: colors.silverChalice,
+  tileBackgroundColorHover: colors.gallery
 }
 
 export {
