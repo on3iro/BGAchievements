@@ -2,36 +2,38 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { ChevronLeftIcon } from 'mdi-react'
 
 import PageWrapper from 'views/components/atoms/PageWrapper'
 import Content from 'views/components/atoms/Content'
 import P from 'views/components/atoms/P'
 import Link from 'views/components/atoms/Link'
-import Divider from 'views/components/atoms/Divider'
 
 import Header from 'views/components/organisms/Header'
-import LoginForm from 'views/components/organisms/LoginForm'
+import ForgotPasswordForm from 'views/components/organisms/ForgotPasswordForm'
 
 const Wrapper = styled.div`
-  margin: 0 auto;
+  margin: ${props => (props.theme.buildingUnit * 12)}px auto 0;
   max-width: ${props => (props.theme.buildingUnit * 54)}px;
 `
 
-class Login extends React.PureComponent<Object> {
+const BackArrow = styled(ChevronLeftIcon)`
+  margin: ${props => (props.theme.buildingUnit * -0.5)}px 0 0 ${props => (props.theme.buildingUnit * -1)}px;
+`
+
+class ForgotPassword extends React.PureComponent<Object> {
   render () {
     return (
       <PageWrapper>
         <Header title='BGAchievements' />
         <Content>
           <Wrapper>
-            <LoginForm />
-            <P alignment='right'>
-              <Link to='/forgot-password'>Forgot password</Link>
-            </P>
-            <Divider />
             <P alignment='center'>
-              You don't have an account yet?<br />
-              <Link to='/registration'>Register here</Link>
+              You have forgotten your password? Then you can reset it here.
+            </P>
+            <ForgotPasswordForm />
+            <P>
+              <Link to='/login'><BackArrow />Back to Login</Link>
             </P>
           </Wrapper>
         </Content>
@@ -41,5 +43,5 @@ class Login extends React.PureComponent<Object> {
 }
 
 export {
-  Login as default
+  ForgotPassword as default
 }
