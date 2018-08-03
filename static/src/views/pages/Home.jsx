@@ -27,7 +27,44 @@ const TileListItem = styled.li`
   border-bottom: 1px solid ${props => props.theme.borderColor};
 `
 
-class Home extends React.PureComponent<Object> {
+type State = {
+  boardgames: any
+}
+
+class Home extends React.PureComponent<Object, State> {
+  constructor (props: any) {
+    super(props)
+
+    this.state = {
+      boardgames: [
+        {
+          id: 1,
+          imageSrc: 'https://images.unsplash.com/photo-1533209901383-ed01cc39a6c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbab1aed831d3409035d2caf278ffe20&auto=format&fit=crop&w=1950&q=80',
+          title: 'Gloomhaven',
+          achievements: 0,
+          achievementsTotal: 12,
+          updated: '12.01.2018'
+        },
+        {
+          id: 2,
+          imageSrc: 'https://images.unsplash.com/photo-1533209901383-ed01cc39a6c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbab1aed831d3409035d2caf278ffe20&auto=format&fit=crop&w=1950&q=80',
+          title: 'Netrunner',
+          achievements: 0,
+          achievementsTotal: 12,
+          updated: '12.01.2018'
+        },
+        {
+          id: 3,
+          imageSrc: 'https://images.unsplash.com/photo-1533209901383-ed01cc39a6c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbab1aed831d3409035d2caf278ffe20&auto=format&fit=crop&w=1950&q=80',
+          title: 'Chess',
+          achievements: 0,
+          achievementsTotal: 12,
+          updated: '15.01.2018'
+        }
+      ]
+    }
+  }
+
   render () {
     return (
       <PageWrapper>
@@ -35,15 +72,19 @@ class Home extends React.PureComponent<Object> {
         <StyledContent>
           <Wrapper>
             <TileList>
-              <TileListItem>
-                <BoardgameTile
-                  id={1}
-                  imageSrc='https://images.unsplash.com/photo-1533209901383-ed01cc39a6c8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbab1aed831d3409035d2caf278ffe20&auto=format&fit=crop&w=1950&q=80'
-                  title='Boardgame 1'
-                  achievements={4}
-                  achievementsTotal={12}
-                  updated='12.01.2018' />
-              </TileListItem>
+              { this.state.boardgames.map((boardgame) => {
+                return (
+                  <TileListItem>
+                    <BoardgameTile
+                      id={boardgame.id}
+                      imageSrc={boardgame.imageSrc}
+                      title={boardgame.title}
+                      achievements={boardgame.achievements}
+                      achievementsTotal={boardgame.achievementsTotal}
+                      updated={boardgame.updated} />
+                  </TileListItem>
+                )
+              })}
             </TileList>
           </Wrapper>
         </StyledContent>

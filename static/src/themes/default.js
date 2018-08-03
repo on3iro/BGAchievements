@@ -37,7 +37,7 @@ const defaultTheme = {
   inputBackgroundColor: colors.white,
   inputBackgroundColorHover: colors.gallery,
   inputBackgroundColorDisabled: colors.alto,
-  avatarSize: '132px',
+  avatarSize: '96px',
   hintColor: colors.silverChalice,
   tileBackgroundColorHover: colors.gallery
 }
