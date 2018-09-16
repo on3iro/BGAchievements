@@ -1,0 +1,29 @@
+version: '3.5'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./local-dev/backend/Dockerfile
+
+  # postgres-db:
+    # image: postgres
+    # volumes:
+      # - ./local-dev/postgres-db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:cached
+    # ports:
+      # # we expose the database port to view database contents from the host machine
+      # - 5432:5432
+
+  # frontend-react-watcher:
+    # build:
+      # context: .
+      # dockerfile: ./local-dev/frontend-react-watch/Dockerfile
+    # volumes:
+      # - ./tmp/.yarn-cache/:/app/.yarn-cache/:cached
+      # - ./frontend/:/app/frontend/:cached
+      # - frontend_react_node_modules:/app/frontend/node_modules
+    # ports:
+      # - 3000:3000
+
+# volumes:
+  # frontend_react_node_modules:
+
