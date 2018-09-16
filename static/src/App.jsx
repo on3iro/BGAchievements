@@ -23,6 +23,7 @@ const App = () => (
         <Route exact path='/registration' component={Registration} />
         <Route exact path='/' render={() => <Redirect to='/home' />} />
         <Route exact path='/home' component={Home} />
+        <Route exact path='/home/:id' component={Home} />
       </Switch>
     </ThemeProvider>
   </Router>

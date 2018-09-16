@@ -1,27 +1,14 @@
 // @flow
 
 import * as React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import H2 from 'views/components/atoms/H2'
 import P from 'views/components/atoms/P'
 import Hint from 'views/components/atoms/Hint'
+import Tile from 'views/components/atoms/TileBase'
 
 import Avatar from 'views/components/molecules/Avatar'
-
-const Wrapper = styled(Link)`
-  display: flex;
-  padding: ${props => props.theme.buildingUnit * 3}px;
-  color: ${props => props.theme.textColor};
-  text-decoration: none;
-  transition: background 0.2s ease-in-out;
-
-  &:hover {
-    background: ${props => props.theme.tileBackgroundColorHover};
-    transition: background 0.2s ease-in-out;
-  }
-`
 
 const TileContent = styled.div`
   display: flex;
@@ -61,7 +48,7 @@ class BoardgameTile extends React.PureComponent<Props> {
     } = this.props
 
     return (
-      <Wrapper to={`/home/${id}`}>
+      <Tile to={`/home/${id}`}>
         <Avatar imageSrc={imageSrc} />
         <TileContent>
           <TileContentHeader>
@@ -72,7 +59,7 @@ class BoardgameTile extends React.PureComponent<Props> {
             <Hint alignment='right'>Last updated: {updated}</Hint>
           </TileContentFooter>
         </TileContent>
-      </Wrapper>
+      </Tile>
     )
   }
 }

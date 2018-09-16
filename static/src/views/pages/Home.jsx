@@ -2,29 +2,28 @@
 
 import * as React from 'react'
 import styled from 'styled-components'
+import { MoreVertIcon } from 'mdi-react'
 
 import PageWrapper from 'views/components/atoms/PageWrapper'
 import Content from 'views/components/atoms/Content'
-import Ul from 'views/components/atoms/Ul'
+import TileList from 'views/components/atoms/TileList'
+import TileListItem from 'views/components/atoms/TileListItem'
+import Menu from 'views/components/atoms/Menu'
+import MenuButton from 'views/components/atoms/MenuButton'
+import MenuList from 'views/components/atoms/MenuList'
+import MenuListItem from 'views/components/atoms/MenuListItem'
+import MenuListLink from 'views/components/atoms/MenuListLink'
 
 import BoardgameTile from 'views/components/organisms/BoardgameTile'
 
 import Header from 'views/components/organisms/Header'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+`
 
 const StyledContent = styled(Content)`
   padding-right: 0;
   padding-left: 0;
-`
-
-const TileList = styled(Ul)`
-  margin: 0;
-  padding: 0;
-`
-
-const TileListItem = styled.li`
-  border-bottom: 1px solid ${props => props.theme.borderColor};
 `
 
 type State = {
@@ -63,6 +62,16 @@ class Home extends React.PureComponent<Object, State> {
         }
       ]
     }
+
+    this.handleOpenMenu = this.handleOpenMenu.bind(this)
+  }
+
+  handleOpenMenu: Function
+  handleOpenMenu (event: any) {
+    const id = event.target.closest('button')
+    console.log('clicked')
+    console.log(this)
+    console.log(id.dataset.target)
   }
 
   render () {
@@ -74,7 +83,7 @@ class Home extends React.PureComponent<Object, State> {
             <TileList>
               { this.state.boardgames.map((boardgame) => {
                 return (
-                  <TileListItem>
+                  <TileListItem key={boardgame.id}>
                     <BoardgameTile
                       id={boardgame.id}
                       imageSrc={boardgame.imageSrc}
@@ -82,6 +91,19 @@ class Home extends React.PureComponent<Object, State> {
                       achievements={boardgame.achievements}
                       achievementsTotal={boardgame.achievementsTotal}
                       updated={boardgame.updated} />
+                    <Menu>
+                      <MenuButton type='button' onClick={this.handleOpenMenu} data-target={boardgame.id}>
+                        <MoreVertIcon />
+                      </MenuButton>
+                      <MenuList>
+                        <MenuListItem>
+                          <MenuListLink to={'/home'}>Info</MenuListLink>
+                        </MenuListItem>
+                        <MenuListItem>
+                          <MenuListLink to={'/home'}>Delete</MenuListLink>
+                        </MenuListItem>
+                      </MenuList>
+                    </Menu>
                   </TileListItem>
                 )
               })}

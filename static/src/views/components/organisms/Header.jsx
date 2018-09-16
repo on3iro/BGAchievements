@@ -12,6 +12,7 @@ import HeaderNavListItem from '../atoms/HeaderNavListItem'
 const Wrapper = styled.header`
   position: fixed;
   display: flex;
+  z-index: 10;
 
   flex-direction: row;
   align-items: center;
