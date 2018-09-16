@@ -8,4 +8,6 @@ COPY backend/gradle gradle
 COPY backend/gradlew gradlew
 COPY backend/build.gradle build.gradle
 
+RUN ./gradlew downloadDependencies
+
 CMD ./gradlew bootRun
