@@ -1,17 +1,21 @@
 version: '3.5'
 services:
   backend:
+    links:
+      - postgres-db
     build:
       context: .
       dockerfile: ./local-dev/backend/Dockerfile
+    ports:
+      - 8080:8080
 
-  # postgres-db:
-    # image: postgres
-    # volumes:
-      # - ./local-dev/postgres-db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:cached
-    # ports:
-      # # we expose the database port to view database contents from the host machine
-      # - 5432:5432
+  postgres-db:
+    image: postgres
+    volumes:
+      - ./local-dev/postgres-db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:cached
+    ports:
+      # we expose the database port to view database contents from the host machine
+      - 5432:5432
 
   # frontend-react-watcher:
     # build:
