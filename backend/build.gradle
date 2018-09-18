@@ -27,32 +27,9 @@ group = 'com.oneironauten'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
-jar {
-    baseName = 'bgs-rest-service'
-    version = "${version}"
-}
-
 repositories {
-    jcenter()
+  jcenter()
 }
-
-compileKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "1.8"
-    }
-}
-compileTestKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "1.8"
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-rest')
@@ -65,3 +42,12 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
+task downloadDependencies(type: Exec) {
+  configurations.testCompile.files
+  commandLine 'echo', 'Downloaded all dependencies'
+}
+
+jar {
+  baseName = 'bgs-rest-service'
+  version = "${version}"
+}

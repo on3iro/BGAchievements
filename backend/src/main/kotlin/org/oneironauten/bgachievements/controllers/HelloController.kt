@@ -17,4 +17,7 @@ class HelloController {
     @RequestMapping("/hello")
     fun messages(): MutableList<Hello> = helloRepository.findAll()
 
+    @CrossOrigin()
+    @RequestMapping("/test")
+    fun test(): String = "Hi, this works quite weel"
 }

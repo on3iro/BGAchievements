@@ -1,0 +1,9 @@
+# .git/
+**/out/
+**/node_modules/
+**/build/
+**/.idea/
+**/docs/
+Data/
+**/target/
+tmp/
